@@ -52,9 +52,9 @@ public class HttpHelper {
 			return e.getMessage();
 		}
 	}
-
-	public static String post(String url, String data) {
-		
+	
+	public static String post(String url, String data, String contentType) {
+				
 		try {
 			URL server = new URL(url);
 					
@@ -62,7 +62,7 @@ public class HttpHelper {
 			
 			connection.setRequestMethod("POST");
 			connection.addRequestProperty("Accept","application/json");
-			connection.addRequestProperty("Content-Type","application/x-www-form-urlencoded");
+			connection.addRequestProperty("Content-Type",contentType);
 
 			connection.setRequestProperty("Content-Length", "" +Integer.toString(data.getBytes().length));
 			connection.setRequestProperty("Content-Language", "en-US");  

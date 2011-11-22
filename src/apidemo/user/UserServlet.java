@@ -6,8 +6,8 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import framework.Oauth;
 import framework.User;
 
 /**
@@ -25,7 +25,7 @@ public class UserServlet extends HttpServlet {
 		
 		if ("true".equals(me)){
 			//Read the session looking for the access token
-			String accessToken = getAccessToken(req);
+			String accessToken = Oauth.getAccessToken(req);
 			
 			//Send the Access token to the framework in order to get my own data
 			json = User.getMeInfo(accessToken);
@@ -46,16 +46,6 @@ public class UserServlet extends HttpServlet {
 	    out.println("<br><br>");
 	    out.println(json);
 
-	}
-	
-	private String getAccessToken(HttpServletRequest req){
-
-		//Get the session object		
-		HttpSession session = req.getSession(true);
-		
-		//Persist the access tokjen in the session
-		return (String)session.getAttribute("accessToken");				
-		
 	}
 			
 }

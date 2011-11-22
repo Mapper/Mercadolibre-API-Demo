@@ -11,7 +11,9 @@
     <h1>Hello Mercadolibre API Developer!</h1>
 	
 	<ol>
-		<li><a href="user.jsp">Users API</a></li>
+		<li><a href="user.jsp">Users API</a> Get Information related to users</li>
+		<li><a href="search.jsp">Search API</a> Search for Items in Argentina</li>
+		<li><a href="items.jsp">Items API</a> List Items in Argentina</li>
 	</ol>	
   </body>
 </html>
